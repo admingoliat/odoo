@@ -6,8 +6,8 @@
             <field name="name">Informations Camion</field>
             <field name="model">stock.picking</field>
             <field name="report_type">qweb-pdf</field>
-            <field name="report_name">scy_motor_report.information_camion</field>
-            <field name="report_file">scy_motor_report.information_camion</field>
+            <field name="report_name">sale_stock.information_camion</field>
+            <field name="report_file">sale_stock.information_camion</field>
             <field name="binding_model_id" ref="stock.model_stock_picking"/>
             <field name="binding_type">report</field>
         </record>
@@ -16,8 +16,8 @@
             <field name="name">Facture Proforma</field>
             <field name="model">sale.order</field>
             <field name="report_type">qweb-pdf</field>
-            <field name="report_name">scy_motor_report.information_vente</field>
-            <field name="report_file">scy_motor_report.information_vente</field>
+            <field name="report_name">sale_stock.information_vente</field>
+            <field name="report_file">sale_stock.information_vente</field>
             <field name="binding_model_id" ref="sale.model_sale_order"/>
             <field name="binding_type">report</field>
         </record>
