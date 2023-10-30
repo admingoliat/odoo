@@ -4,3 +4,5 @@
 from . import sale_report
 from . import stock_forecasted
 from . import report_stock_rule
+from . import product
+from . import sale_order
