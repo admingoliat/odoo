@@ -37,7 +37,7 @@ Preferences
         'report/product.xml',
         'report/sale_order.xml',
         'report/template.xml',
-        'report/report.xml'
+        'report/report.xml',
 
         'data/mail_templates.xml',
         'data/sale_stock_data.xml',
