@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="product_normal_form_view" model="ir.ui.view">
+            <field name="name">product.product</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+
+                <data>
+                    <xpath expr="//form[1]/sheet[@name='product_form']/notebook[1]" position="inside">
+                        <page string="Informations produit" name="studio_page_XlK9b">
+                            <group name="studio_group_XlK9b">
+                                <group name="studio_group_XlK9b_left">
+                                    <field name="puissance_administrative"
+                                           string="Puissance Administrative"/>
+                                    <field name="source_dnergie" string="Source d'énergie"/>
+                                    <field name="nombre_de_places" string="Nombre de places"/>
+                                    <field name="type_moteur"/>
+                                    <field name="equipement"/>
+                                </group>
+                                <group name="studio_group_XlK9b_right">
+                                    <field name="genre" string="Genre"/>
+                                    <field name="type_m" string="Type"/>
+                                    <field name="marque" string="Marque"/>
+                                    <field name="caracteristique_techinque"/>
+                                </group>
+                            </group>
+                        </page>
+                    </xpath>
+                </data>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

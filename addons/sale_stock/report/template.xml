@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="information_camion">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <style>
+                        table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        font-size: 1.3rem;
+                        }
+                        td, th{
+                        border: 1px solid black;
+                        }
+                        .infos td,th {
+                        height: 50px;
+                        }
+                    </style>
+
+                    <t t-set="lang"
+                       t-value="o.partner_id.lang"/>
+                    <div class="page">
+                        <h2 align="center">FICHE D'INFORMATION SUR LE CAMION</h2>
+                        <br/>
+                        <br/>
+                        <table class="table table-sm table-borderless " style="border: 1px solid black;" align="center">
+                            <thead>
+                                <tr>
+                                    <th class="text_bold" width="50%">CLIENT</th>
+                                    <th class="text_bold" width="50%">
+                                        <span t-esc="o.partner_id.name"/>
+                                    </th>
+                                </tr>
+                            </thead>
+                        </table>
+                        <br/>
+                        <br/>
+
+                        <table class="table table-sm table-borderless infos" style="border: 1px solid black;">
+                            <thead>
+                                <th class="text_bold" width="50%">CARACTERISTIQUES</th>
+                                <th class="text_bold" width="50%">DONNEES</th>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.move_line_ids_without_package" t-as="d">
+                                    <tr align="center">
+                                        <td>
+                                            NDE CHASSIS
+                                        </td>
+                                        <td>
+                                            <span t-esc="d.lot_id.name"/>
+                                        </td>
+                                    </tr>
+                                    <tr align="center">
+                                        <td>
+                                            PUISSANCE ADMINISTRATIVE
+                                        </td>
+                                        <td>
+                                            <span t-esc="d.product_id.puissance_administrative"/>
+                                        </td>
+                                    </tr>
+                                    <tr align="center">
+                                        <td>
+                                            SOURCE D'ENERGIE
+                                        </td>
+                                        <td>
+                                            <span t-esc="d.product_id.source_dnergie"/>
+                                        </td>
+                                    </tr>
+                                    <tr align="center">
+                                        <td>
+                                            NOMBRE DE PLACES
+                                        </td>
+                                        <td>
+                                            <span t-esc="d.product_id.nombre_de_places"/>
+                                        </td>
+                                    </tr>
+                                    <tr align="center">
+                                        <td>
+                                            GENRE
+                                        </td>
+                                        <td>
+                                            <span t-esc="d.product_id.genre"/>
+                                        </td>
+                                    </tr>
+                                    <tr align="center">
+                                        <td>
+                                            TYPE
+                                        </td>
+                                        <td>
+                                            <span t-esc="d.product_id.type_m"/>
+                                        </td>
+                                    </tr>
+                                    <tr align="center">
+                                        <td>
+                                            MARQUE
+                                        </td>
+                                        <td>
+                                            <span t-esc="d.product_id.marque"/>
+                                        </td>
+                                    </tr>
+                                    <tr align="center">
+                                        <td>
+                                            PRIX MATERIEL
+                                        </td>
+                                        <td>
+                                            <span t-esc="o.sale_id.amount_total"
+                                                          t-options="{'widget': 'float', 'precision': 0}"/>
+                                            <span>
+                                                TTC L'unité
+                                            </span>
+
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <br/>
+                        <br/>
+                        <h2 align="center">CORDINATEUR DSE VENTES</h2>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+    <template id="information_vente">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <style>
+                        table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        font-size: 1.3rem;
+                        }
+                        .infos td, th{
+                        border: 1px solid black;
+                        }
+                        .infos td,th {
+                        height: 40px;
+                        }
+                        .product {
+                          position: absolute;
+                          top: 0;
+                          left: 0;
+                          width: 100%;
+                        }
+                        .montant{
+                            font-size: 1.5rem;
+                        }
+                    </style>
+                    <t t-set="lang"
+                       t-value="o.partner_id.lang"/>
+                    <div class="page">
+                        <br/>
+                        <br/>
+                        <div class="col-8">
+                            <div class="row">
+                                <div class="col-6">
+                                    <table class="table table-sm table-borderless">
+
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    CLIENT
+                                                </td>
+                                                <td class="text_bold">
+                                                    <span t-esc="o.partner_id.name"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    N°facture Profoma
+                                                </td>
+                                                <td>
+                                                    <span t-esc="o.name"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Date
+                                                </td>
+                                                <td>
+                                                    <span t-esc="o.date_order"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Contact Vendeur
+                                                </td>
+                                                <td>
+                                                    <span t-esc="o.user_id.mobile"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Mode de Paiement
+                                                </td>
+                                                <td>
+                                                    <span t-esc="o.mode_de_financement"/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-6"/>
+                            </div>
+                            <br/>
+                            <br/>
+                            <div class="row">
+                                <t t-foreach="o.order_line" t-as="d">
+                                    <table class="table table-sm table-borderless infos"
+                                           style="border: 1px solid black;">
+                                        <thead>
+                                            <tr>
+                                                <th align="center" width="50%" class="text_bold">CARTERISTIQUES
+                                                    TECHNIQUES
+                                                    <br/>
+                                                    <span t-esc="d.product_id.type_moteur"/>
+                                                </th>
+                                                <th align="center" width="50%" class="text_bold">EQUIPEMENTS
+                                                    <br/>
+                                                    VERSION
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+
+                                                <td style="border: 1px solid black;">
+                                                    <table>
+                                                        <tr t-foreach="d.product_id.caracteristique_techinque.split('\n') if d.product_id.caracteristique_techinque else False"
+                                                            t-as="c" style="border: none;"  >
+                                                            <td style="border: none; height: 20px;">
+                                                                <span t-esc="c"/>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+
+
+                                                <td style="border: 1px solid black;">
+                                                    <table>
+                                                        <tr t-foreach="d.product_id.equipement.split('\n') if d.product_id.equipement else false" t-as="e"
+                                                            style="border: none;">
+                                                            <td style="border: none; height: 20px;">
+                                                                <span t-esc="e"/>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </t>
+                            </div>
+                            <br/>
+                            <br/>
+                            <div class="row">
+                                <table class="table table-sm table-borderless infos" style="border: 1px solid black;">
+                                    <thead>
+                                        <tr>
+                                            <th width="35%" style="background-color: black;color: white;"
+                                                class="text_bold">STRUCTURE DES PRIX
+                                            </th>
+                                            <th width="25%" class="text_bold">UNITAIRE</th>
+                                            <th width="15%" class="text_bold">QTE</th>
+                                            <th width="25%" class="text_bold">TOTAL</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                                <table class="table table-sm table-borderless infos" style="border: 1px solid black;">
+                                    <tbody>
+                                        <t t-foreach="o.order_line" t-as="d">
+                                            <tr>
+                                                <td width="30%" class="text_bold">PRIX T.HTVA</td>
+                                                <td width="30%">
+                                                    <span t-esc="d.price_unit"
+                                                          t-options="{'widget': 'float', 'precision': 0}"/>
+                                                </td>
+                                                <td width="15%">
+                                                    <span t-esc="d.product_uom_qty"/>
+                                                </td>
+                                                <td width="30%" class="text_bold">
+                                                    <span t-esc="d.price_subtotal"
+                                                          t-options="{'widget': 'float', 'precision': 0}"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="25%" class="text_bold">TVA</td>
+                                                <td width="30%">
+                                                    <span t-esc="o.amount_tax"
+                                                          t-options="{'widget': 'float', 'precision': 0}"/>
+                                                </td>
+                                                <td width="15%"/>
+                                                <td width="30%" class="text_bold">
+                                                    <span t-esc="o.amount_tax"
+                                                          t-options="{'widget': 'float', 'precision': 0}"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="15%" class="text_bold">PRIX TTC</td>
+                                                <td width="30%">
+                                                    <span t-esc="o.amount_total"
+                                                          t-options="{'widget': 'float', 'precision': 0}"/>
+                                                </td>
+                                                <td width="15%"/>
+                                                <td width="30%" class="text_bold">
+                                                    <span t-esc="o.amount_total"
+                                                          t-options="{'widget': 'float', 'precision': 0}"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                                <br/>
+                                <br/>
+
+                                <span class="text-bold montant">
+                                    PROFORMA ARRETEE A LA SOMME DE
+                                    <u>
+                                        <span t-esc="o.currency_id.amount_to_text(o.amount_total)"/>
+                                    </u>
+                                </span>
+
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <img t-if="o.order_line.product_id.image_1920" class="product"
+                                 t-att-src="'data:image/png;base64,' + o.order_line.product_id.image_1920.decode('utf-8')"
+                                 alt="image" style="height: 100px; max-height: 100px;width=300px;"/>
+                        </div>
+                    </div>
+
+                </t>
+            </t>
+        </t>
+    </template>
+
+
+</odoo>

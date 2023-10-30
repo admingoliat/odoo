@@ -34,6 +34,10 @@ Preferences
         'report/report_stock_forecasted.xml',
         'report/sale_order_report_templates.xml',
         'report/stock_report_deliveryslip.xml',
+        'report/product.xml',
+        'report/sale_order.xml',
+        'report/template.xml',
+        'report/report.xml'
 
         'data/mail_templates.xml',
         'data/sale_stock_data.xml',

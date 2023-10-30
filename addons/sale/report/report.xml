@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="raport_information_camion" model="ir.actions.report">
+            <field name="name">Informations Camion</field>
+            <field name="model">stock.picking</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">scy_motor_report.information_camion</field>
+            <field name="report_file">scy_motor_report.information_camion</field>
+            <field name="binding_model_id" ref="stock.model_stock_picking"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <record id="raport_information_vente" model="ir.actions.report">
+            <field name="name">Facture Proforma</field>
+            <field name="model">sale.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">scy_motor_report.information_vente</field>
+            <field name="report_file">scy_motor_report.information_vente</field>
+            <field name="binding_model_id" ref="sale.model_sale_order"/>
+            <field name="binding_type">report</field>
+        </record>
+
+    </data>
+</odoo>
