@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+ # -*- coding: utf-8 -*-
 
 from odoo import fields, models
 
@@ -9,10 +9,6 @@ class ProductProduct(models.Model):
         string="Source D'Energir"
     )
 
-    nombre_de_place = fields.Char(
-        string="Nombre de Place"
-    )
-
     genre = fields.Char(
         string="Genre"
     )
@@ -21,8 +17,8 @@ class ProductProduct(models.Model):
         string="Type Moteur"
     )
 
-    caracteristique_techinque = fields.Char(
-        string="Carcteristique technique"
+    type_m = fields.Char(
+        string="Type"
     )
 
     marque = fields.Char(
@@ -41,7 +37,7 @@ class ProductProduct(models.Model):
         string="Equipement"
     )
 
-    caracteristique_technique = fields.Text(
+    caracteristiques_techniques = fields.Text(
         string="Caracteristiques Techiniques"
     )
 
@@ -50,10 +46,6 @@ class ProductTemplate(models.Model):
 
     source_dnergie = fields.Char(
         string="Source D'Energir"
-    )
-
-    nombre_de_place = fields.Char(
-        string="Nombre de Place"
     )
 
     genre = fields.Char(
@@ -81,10 +73,47 @@ class ProductTemplate(models.Model):
     )
 
     equipement = fields.Text(
-        string="Equipement"
+        string="Equipements"
     )
 
-    caracteristique_technique = fields.Text(
+    caracteristiques_techniques = fields.Text(
         string="Caracteristiques Techiniques"
     )
 
+
+    def write(self, values):
+        res = super(ProductTemplate, self).write(values)
+
+        val = {}
+
+        if 'caracteristiques_techniques' in values:
+            val['caracteristiques_techniques'] = values['caracteristiques_techniques']
+
+        if 'equipement' in values:
+            val['equipement'] = values['equipement']
+
+        if 'nombre_de_places' in values:
+            val['nombre_de_places'] = values['nombre_de_places']
+
+        if 'type_moteur' in values:
+            val['type_moteur'] = values['type_moteur']
+
+        if 'puissance_administrative' in values:
+            val['puissance_administrative'] = values['puissance_administrative']
+
+        if 'marque' in values:
+            val['marque'] = values['marque']
+
+        if 'type_m' in values:
+            val['type_m'] = values['type_m']
+
+        if 'genre' in values:
+            val['genre'] = values['genre']
+
+        if 'source_dnergie' in values:
+            val['source_dnergie'] = values['source_dnergie']
+
+        if val:
+            self.product_variant_ids.write(val)
+
+        return res
