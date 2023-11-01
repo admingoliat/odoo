@@ -8,30 +8,56 @@
             <field name="model">product.product</field>
             <field name="inherit_id" ref="product.product_normal_form_view"/>
             <field name="arch" type="xml">
-
-                <data>
-                    <xpath expr="//form[1]/sheet[@name='product_form']/notebook[1]" position="inside">
-                        <page string="Informations produit" name="studio_page_XlK9b">
-                            <group name="studio_group_XlK9b">
-                                <group name="studio_group_XlK9b_left">
-                                    <field name="puissance_administrative"
-                                           string="Puissance Administrative"/>
-                                    <field name="source_dnergie" string="Source d'énergie"/>
-                                    <field name="nombre_de_places" string="Nombre de places"/>
-                                    <field name="type_moteur"/>
-                                    <field name="equipement"/>
-                                </group>
-                                <group name="studio_group_XlK9b_right">
-                                    <field name="genre" string="Genre"/>
-                                    <field name="type_m" string="Type"/>
-                                    <field name="marque" string="Marque"/>
-                                    <field name="caracteristique_techinque"/>
-                                </group>
+                <xpath expr="//form[1]/sheet[@name='product_form']/notebook[1]" position="inside">
+                    <page string="Informations produit" name="studio_page_XlK9b1">
+                        <group name="studio_group_XlK9b">
+                            <group name="studio_group_XlK9b_left">
+                                <field name="puissance_administrative"
+                                       string="Puissance Administrative"/>
+                                <field name="source_dnergie" string="Source d'énergie"/>
+                                <field name="nombre_de_places" string="Nombre de places"/>
+                                <field name="type_moteur"/>
+                                <field name="equipement"/>
                             </group>
-                        </page>
-                    </xpath>
-                </data>
+                            <group name="studio_group_XlK9b_right1">
+                                <field name="genre" string="Genre"/>
+                                <field name="type_m" string="Type"/>
+                                <field name="marque" string="Marque"/>
+                                <field name="caracteristiques_techniques"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
 
+        <!-- Inherit Form View to Modify it -->
+        <record id="product_template_form_view" model="ir.ui.view">
+            <field name="name">product.template</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//form[1]/sheet[@name='product_form']/notebook[1]" position="inside">
+                    <page string="Informations produit" name="studio_page_XlK9b1">
+                        <group name="studio_group_XlK9b">
+                            <group name="studio_group_XlK9b_left">
+                                <field name="puissance_administrative"
+                                       string="Puissance Administrative"/>
+                                <field name="source_dnergie" string="Source d'énergie"/>
+                                <field name="nombre_de_places" string="Nombre de places"/>
+                                <field name="type_moteur"/>
+                                <field name="equipement"/>
+                            </group>
+                            <group name="studio_group_XlK9b_right1">
+                                <field name="genre" string="Genre"/>
+                                <field name="type_m" string="Type"/>
+                                <field name="marque" string="Marque"/>
+                                <field name="caracteristiques_techniques"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
             </field>
         </record>
 
