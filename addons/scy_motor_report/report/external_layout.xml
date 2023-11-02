@@ -8,9 +8,9 @@
 
                 <div class="row"  >
 
-                    <img src="/scy_motor_report/static/src/image/entete.jpg"
-                         style="width: 90%; height: 90%; object-fit: cover;"
-                           alt="Airport"/>
+                    <img t-if="company"  style="width: 90%; height: 90%; object-fit: cover;"
+                                 t-att-src="'data:image/png;base64,%s' % company.entete.decode('utf-8')"/>
+
 
                 </div>
 
@@ -20,9 +20,9 @@
         <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout" position="replace">
             <div class="footer o_standard_footer"  >
                 <div>
-                    <img src="/scy_motor_report/static/src/image/pieds.jpg"
-                         style="width: 90%; height: 90%; object-fit: cover;"
-                           alt="Airport"/>
+                    <img t-if="company"  style="width: 90%; height: 90%; object-fit: cover;"
+                                 t-att-src="'data:image/png;base64,%s' % company.pieds.decode('utf-8')"/>
+
                 </div>
             </div>
         </div>
