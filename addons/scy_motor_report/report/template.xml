@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+ <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
     <template id="information_camion">
@@ -232,7 +232,7 @@
 
                                                 <td style="border: 1px solid black;">
                                                     <table>
-                                                        <tr t-foreach="d.product_id.caracteristique_techinque.split('\n') if d.product_id.caracteristique_techinque else False"
+                                                        <tr t-foreach="d.product_id.caracteristiques_techniques.split('\n') if d.product_id.caracteristiques_techniques else False"
                                                             t-as="c" style="border: none;">
                                                             <td style="border: none; height: 20px;">
                                                                 <span t-esc="c"/>
