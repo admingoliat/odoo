@@ -33,6 +33,7 @@
         'report/report.xml',
         'views/product.xml',
         'views/sale_order.xml',
+        'views/company.xml',
     ],
 
 }
