@@ -138,27 +138,30 @@
                         border-collapse: collapse;
                         font-size: 1.1rem;
                         }
-                        .infos td, th{
-                        border: 1px solid black;
-                        }
+
                         .infos td,th {
                         height: 30px;
                         }
+
                         .product {
                         width: 90%;
                         height: 800px;
                         object-fit: cover;
                         }
                         .montant{
-                        font-size: 1.3rem;
+                        font-size: 1.2rem;
                         }
+
                     </style>
                     <t t-set="lang" t-value="o.partner_id.lang"/>
                     <div class="page" style="overflow: hidden;">
                         <br/>
                         <br/>
+                        <div class="row">
+                              <img t-att-src="'/scy_motor_report/static/src/img/IMG_2.jpg'" width="100%"  height="40px"/>
+                            </div>
                         <div style="float: left; width: 70%;">
-                            <div class="row">
+                            <div class="row" style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black;">
                                 <div class="col-8">
                                     <table class="table table-sm table-borderless">
 
@@ -212,28 +215,27 @@
                             <br/>
                             <div class="row">
                                 <t t-foreach="o.order_line" t-as="d">
-                                    <table class="table table-sm table-borderless infos"
-                                           style="border: 1px solid black;">
-                                        <thead>
+                                    <table class="table table-sm table-borderless infos">
+                                        <thead style="border: none;">
                                             <tr>
-                                                <th align="center" width="50%" class="text_bold">CARTERISTIQUES
+                                                <th align="center" width="47%" class="text_bold" style="border: 1px solid black;">CARTERISTIQUES
                                                     TECHNIQUES
                                                     <br/>
                                                     <span t-esc="d.product_id.type_moteur"/>
                                                 </th>
-                                                <th align="center" width="50%" class="text_bold">EQUIPEMENTS
+                                                <th width="6%"/>
+                                                <th align="center" width="47%" class="text_bold" style="border: 1px solid black;">EQUIPEMENTS
                                                     <br/>
                                                     VERSION
                                                 </th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody style="border: none;">
                                             <tr>
 
                                                 <td style="border: 1px solid black;">
                                                     <table>
-                                                        <tr t-foreach="d.product_id.caracteristiques_techniques.split('\n') if d.product_id.caracteristiques_techniques else False"
-                                                            t-as="c" style="border: none;">
+                                                        <tr t-foreach="d.product_id.caracteristiques_techniques.split('\n') if d.product_id.caracteristiques_techniques else False" t-as="c" style="border: none;">
                                                             <td style="border: none; height: 20px;">
                                                                 <span t-esc="c"/>
                                                             </td>
@@ -241,11 +243,10 @@
                                                     </table>
                                                 </td>
 
-
+                                                <td/>
                                                 <td style="border: 1px solid black;">
                                                     <table>
-                                                        <tr t-foreach="d.product_id.equipement.split('\n') if d.product_id.equipement else false"
-                                                            t-as="e" style="border: none;">
+                                                        <tr t-foreach="d.product_id.equipement.split('\n') if d.product_id.equipement else false" t-as="e" style="border: none;">
                                                             <td style="border: none; height: 20px;">
                                                                 <span t-esc="e"/>
                                                             </td>
@@ -261,60 +262,42 @@
                             <br/>
                             <br/>
                             <div class="row">
-                                <table class="table table-sm table-borderless infos" style="border: 1px solid black;">
-                                    <thead>
-                                        <tr>
-                                            <th width="35%" style="background-color: black;color: white;"
-                                                class="text_bold">STRUCTURE DES PRIX
-                                            </th>
-                                            <th width="25%" class="text_bold">UNITAIRE</th>
-                                            <th width="15%" class="text_bold">QTE</th>
-                                            <th width="25%" class="text_bold">TOTAL</th>
-                                        </tr>
-                                    </thead>
-                                </table>
+                              <img t-att-src="'/scy_motor_report/static/src/img/IMG_20.jpg'" width="100%"  height="40px"/>
                             </div>
                             <div class="row">
                                 <table class="table table-sm table-borderless infos" style="border: 1px solid black;">
                                     <tbody>
                                         <t t-foreach="o.order_line" t-as="d">
                                             <tr>
-                                                <td width="33%" class="text_bold">PRIX T.HTVA</td>
-                                                <td width="27%">
-                                                    <span t-esc="d.price_unit"
-                                                          t-options="{'widget': 'float', 'precision': 0}"/>
+                                                <td width="33%" class="text_bold" style="border: 1px solid black;">PRIX T.HTVA</td>
+                                                <td width="27%" style="border: 1px solid black;">
+                                                    <span t-esc="d.price_unit" t-options="{'widget': 'float', 'precision': 0}"/>
                                                 </td>
-                                                <td width="15%">
-                                                    <span t-esc="d.product_uom_qty"
-                                                          t-options="{'widget': 'float', 'precision': 0}"/>
+                                                <td width="15%" style="border: 1px solid black;">
+                                                    <span t-esc="d.product_uom_qty" t-options="{'widget': 'float', 'precision': 0}"/>
                                                 </td>
-                                                <td width="25%" class="text_bold">
-                                                    <span t-esc="d.price_subtotal"
-                                                          t-options="{'widget': 'float', 'precision': 0}"/>
+                                                <td width="25%" class="text_bold" style="border: 1px solid black;">
+                                                    <span t-esc="d.price_subtotal" t-options="{'widget': 'float', 'precision': 0}"/>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="text_bold">TVA</td>
-                                                <td>
-                                                    <span t-esc="o.amount_tax"
-                                                          t-options="{'widget': 'float', 'precision': 0}"/>
+                                                <td class="text_bold" style="border: 1px solid black;">TVA</td>
+                                                <td style="border: 1px solid black;">
+                                                    <span t-esc="o.amount_tax" t-options="{'widget': 'float', 'precision': 0}"/>
                                                 </td>
-                                                <td/>
-                                                <td class="text_bold">
-                                                    <span t-esc="o.amount_tax"
-                                                          t-options="{'widget': 'float', 'precision': 0}"/>
+                                                <td style="border: 1px solid black;"/>
+                                                <td class="text_bold" style="border: 1px solid black;">
+                                                    <span t-esc="o.amount_tax" t-options="{'widget': 'float', 'precision': 0}"/>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="text_bold">PRIX TTC</td>
-                                                <td>
-                                                    <span t-esc="o.amount_total"
-                                                          t-options="{'widget': 'float', 'precision': 0}"/>
+                                                <td class="text_bold" style="border: 1px solid black;">PRIX TTC</td>
+                                                <td style="border: 1px solid black;">
+                                                    <span t-esc="o.amount_total" t-options="{'widget': 'float', 'precision': 0}"/>
                                                 </td>
-                                                <td/>
-                                                <td class="text_bold">
-                                                    <span t-esc="o.amount_total"
-                                                          t-options="{'widget': 'float', 'precision': 0}"/>
+                                                <td style="border: 1px solid black;"/>
+                                                <td class="text_bold" style="border: 1px solid black;">
+                                                    <span t-esc="o.amount_total" t-options="{'widget': 'float', 'precision': 0}"/>
                                                 </td>
                                             </tr>
                                         </t>
@@ -334,14 +317,13 @@
 
                         </div>
                         <div style="float: right; width: 30%;" align="center">
-                            <img t-if="o.order_line.product_id.image_1920" class="product"
-                                 t-att-src="'data:image/png;base64,%s' % o.order_line.product_id.image_1920.decode('utf-8')"/>
+                            <img t-if="o.order_line.product_id.image_1920" class="product" t-att-src="'data:image/png;base64,%s' % o.order_line.product_id.image_1920.decode('utf-8')"/>
                         </div>
                     </div>
 
                 </t>
             </t>
-        </t>
+        </t> 
     </template>
 
 
