@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+ <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
     <template id="information_camion">
@@ -7,7 +7,7 @@
                 <t t-call="web.external_layout">
                     <style>
                         table {
-                        width: 100%;
+                        width: 70%;
                         border-collapse: collapse;
                         font-size: 1.1rem;
                         }
@@ -19,17 +19,16 @@
                         }
                     </style>
 
-                    <t t-set="lang"
-                       t-value="o.partner_id.lang"/>
-                    <div class="page">
+                    <t t-set="lang" t-value="o.partner_id.lang"/>
+                    <div class="page" align="center">
                         <h2 align="center">FICHE D'INFORMATION SUR LE CAMION</h2>
                         <br/>
                         <br/>
                         <table class="table table-sm table-borderless " style="border: 1px solid black;" align="center">
                             <thead>
                                 <tr>
-                                    <th class="text_bold" width="50%">CLIENT</th>
-                                    <th class="text_bold" width="50%">
+                                    <th class="text_bold" width="50%" style="border: 1px solid black;">CLIENT</th>
+                                    <th class="text_bold" width="50%" style="border: 1px solid black;">
                                         <span t-esc="o.partner_id.name"/>
                                     </th>
                                 </tr>
@@ -40,74 +39,73 @@
 
                         <table class="table table-sm table-borderless infos" style="border: 1px solid black;">
                             <thead>
-                                <th class="text_bold" width="50%">CARACTERISTIQUES</th>
-                                <th class="text_bold" width="50%">DONNEES</th>
+                                <th class="text_bold" width="50%" style="border: 1px solid black;">CARACTERISTIQUES</th>
+                                <th class="text_bold" width="50%" style="border: 1px solid black;">DONNEES</th>
                             </thead>
                             <tbody>
                                 <t t-foreach="o.move_line_ids_without_package" t-as="d">
                                     <tr align="center">
-                                        <td>
+                                        <td style="border: 1px solid black;">
                                             NDE CHASSIS
                                         </td>
-                                        <td>
+                                        <td style="border: 1px solid black;">
                                             <span t-esc="d.lot_id.name"/>
                                         </td>
                                     </tr>
                                     <tr align="center">
-                                        <td>
+                                        <td style="border: 1px solid black;">
                                             PUISSANCE ADMINISTRATIVE
                                         </td>
-                                        <td>
+                                        <td style="border: 1px solid black;">
                                             <span t-esc="d.product_id.puissance_administrative"/>
                                         </td>
                                     </tr>
                                     <tr align="center">
-                                        <td>
+                                        <td style="border: 1px solid black;">
                                             SOURCE D'ENERGIE
                                         </td>
-                                        <td>
+                                        <td style="border: 1px solid black;">
                                             <span t-esc="d.product_id.source_dnergie"/>
                                         </td>
                                     </tr>
                                     <tr align="center">
-                                        <td>
+                                        <td style="border: 1px solid black;">
                                             NOMBRE DE PLACES
                                         </td>
-                                        <td>
+                                        <td style="border: 1px solid black;">
                                             <span t-esc="d.product_id.nombre_de_places"/>
                                         </td>
                                     </tr>
                                     <tr align="center">
-                                        <td>
+                                        <td style="border: 1px solid black;">
                                             GENRE
                                         </td>
-                                        <td>
+                                        <td style="border: 1px solid black;">
                                             <span t-esc="d.product_id.genre"/>
                                         </td>
                                     </tr>
                                     <tr align="center">
-                                        <td>
+                                        <td style="border: 1px solid black;">
                                             TYPE
                                         </td>
-                                        <td>
+                                        <td style="border: 1px solid black;">
                                             <span t-esc="d.product_id.type_m"/>
                                         </td>
                                     </tr>
                                     <tr align="center">
-                                        <td>
+                                        <td style="border: 1px solid black;">
                                             MARQUE
                                         </td>
-                                        <td>
+                                        <td style="border: 1px solid black;">
                                             <span t-esc="d.product_id.marque"/>
                                         </td>
                                     </tr>
                                     <tr align="center">
-                                        <td>
+                                        <td style="border: 1px solid black;">
                                             PRIX MATERIEL
                                         </td>
-                                        <td>
-                                            <span t-esc="o.sale_id.amount_total"
-                                                  t-options="{'widget': 'float', 'precision': 0}"/>
+                                        <td style="border: 1px solid black;">
+                                            <span t-esc="o.sale_id.amount_total" t-options="{'widget': 'float', 'precision': 0}"/>
                                             <span>
                                                 TTC L'unité
                                             </span>
@@ -145,8 +143,10 @@
 
                         .product {
                         width: 90%;
-                        height: 800px;
+                        max-height: 800px;
+                        height: 700px;
                         object-fit: cover;
+                        border-bottom-right-radius: 300px;
                         }
                         .montant{
                         font-size: 1.2rem;
@@ -154,12 +154,9 @@
 
                     </style>
                     <t t-set="lang" t-value="o.partner_id.lang"/>
-                    <div class="page" style="overflow: hidden;">
-                        <br/>
-                        <br/>
-                        <div class="row">
-                              <img t-att-src="'/scy_motor_report/static/src/img/IMG_2.jpg'" width="100%"  height="40px"/>
-                            </div>
+                    <img t-att-src="'/scy_motor_report/static/src/image/IMG_2.jpg'" width="400px" style="padding-bottom: 10px;"/>
+                    <div style="overflow: hidden;">
+
                         <div style="float: left; width: 70%;">
                             <div class="row" style="border-top: 1px solid black; border-bottom: 1px solid black; border-right: 1px solid black;">
                                 <div class="col-8">
@@ -262,21 +259,21 @@
                             <br/>
                             <br/>
                             <div class="row">
-                              <img t-att-src="'/scy_motor_report/static/src/img/IMG_20.jpg'" width="100%"  height="40px"/>
+                              <img t-att-src="'/scy_motor_report/static/src/image/IMG_20.jpg'" width="100%" height="40px"/>
                             </div>
-                            <div class="row">
+                            <div class="row" style="padding:2px;">
                                 <table class="table table-sm table-borderless infos" style="border: 1px solid black;">
                                     <tbody>
                                         <t t-foreach="o.order_line" t-as="d">
                                             <tr>
                                                 <td width="33%" class="text_bold" style="border: 1px solid black;">PRIX T.HTVA</td>
-                                                <td width="27%" style="border: 1px solid black;">
+                                                <td width="30%" style="border: 1px solid black;">
                                                     <span t-esc="d.price_unit" t-options="{'widget': 'float', 'precision': 0}"/>
                                                 </td>
-                                                <td width="15%" style="border: 1px solid black;">
+                                                <td width="10%" style="border: 1px solid black;">
                                                     <span t-esc="d.product_uom_qty" t-options="{'widget': 'float', 'precision': 0}"/>
                                                 </td>
-                                                <td width="25%" class="text_bold" style="border: 1px solid black;">
+                                                <td width="27%" class="text_bold" style="border: 1px solid black;">
                                                     <span t-esc="d.price_subtotal" t-options="{'widget': 'float', 'precision': 0}"/>
                                                 </td>
                                             </tr>
@@ -310,7 +307,8 @@
                             <span class="text-bold montant">
                                 PROFORMA ARRETEE A LA SOMME DE
                                 <u>
-                                    <span t-esc="o.currency_id.amount_to_text(o.amount_total)"/>
+                                    <span t-esc="o.currency_id.amount_to_text(o.amount_total).upper() if o.currency_id.amount_to_text(o.amount_total) else ''"/>
+
                                 </u>
                             </span>
 
