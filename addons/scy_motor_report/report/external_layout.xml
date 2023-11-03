@@ -4,12 +4,12 @@
     <template id="external_layout_standard" inherit_id="web.external_layout_standard">
 
         <div t-attf-class="header o_company_#{company.id}_layout" position="replace">
-            <div class="header">
+          <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
 
-                <div class="row"  >
 
-                    <img t-if="company"  style="width: 90%; height: 90%; object-fit: cover;"
-                                 t-att-src="'data:image/png;base64,%s' % company.entete.decode('utf-8')"/>
+                <div class="row">
+
+                    <img t-att-src="image_data_uri(company.entete)" style="height: 150px; "/>
 
 
                 </div>
@@ -18,15 +18,13 @@
         </div>
 
         <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout" position="replace">
-            <div class="footer o_standard_footer"  >
+            <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
                 <div>
-                    <img t-if="company"  style="width: 90%; height: 90%; object-fit: cover;"
-                                 t-att-src="'data:image/png;base64,%s' % company.pieds.decode('utf-8')"/>
+                    <img style="width: 100%;" t-att-src="image_data_uri(company.pieds)"/>
 
                 </div>
             </div>
         </div>
-
     </template>
 
 </odoo>
